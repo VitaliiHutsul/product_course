@@ -1,0 +1,14 @@
+  <div class="card-deck">
+<% @products.each do |product| %>
+  <div class="card">
+    <img class="card-img-top" src="https://images.yourstory.com/2016/08/125-fall-in-love.png?auto=compress" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"><%= product.title %></h5>
+      <p class="card-text">Price: <%= number_to_currency(product.price)%></p>
+      <p class="card-text"><small class="text-muted"><%= time_ago_in_words(product.updated_at)%></small></p>
+        <%= link_to 'Edit', edit_product_path(id: product.id), class: 'btn btn-info float-right' %> 
+    </div>
+  </div>
+<% end %>
+  </div>
+<%= link_to 'Add Product', new_product_path, class: 'btn btn-susses float-right' %>
